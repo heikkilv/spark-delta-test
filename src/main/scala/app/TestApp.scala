@@ -56,6 +56,13 @@ object TestApp
             .mode("overwrite")
             .save("output-delta")
 
+        // Read the written Delta file and show it
+        spark
+            .read
+            .format("delta")
+            .load("output-delta")
+            .show()
+
         spark.stop()
     }
 }
